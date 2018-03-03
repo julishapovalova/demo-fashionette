@@ -1,16 +1,17 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage {
 
-    SelenideElement loginButton = $("#menu");
-    SelenideElement usernameInput = $("");
-    SelenideElement passwordInput = $("");
+   private SelenideElement loginButton = $(By.xpath("//button[contains(text(),\"Einloggen\")]"));
+    private  SelenideElement usernameInput = $(By.xpath("//input[@name='email']"));
+    private SelenideElement passwordInput = $(By.xpath("//input[@name='password']"));
 
     LoginPage(){
-        loginButton.shouldBe(Condition.visible);
+        passwordInput.shouldBe(Condition.visible);
     }
 
     public void login(String username,String password){

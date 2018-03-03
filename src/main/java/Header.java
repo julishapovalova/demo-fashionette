@@ -9,41 +9,32 @@ import static com.codeborne.selenide.Selenide.page;
 public class Header {
 
 
-    @FindBy(css = "")
-    private SelenideElement bagsNavigator;
+    private SelenideElement bagsNavigator = $("*[data-flyout-target=taschen]");
 
-    @FindBy(css = "")
-    private SelenideElement designerNavigator;
+    private SelenideElement designerNavigator = $("*[data-flyout-target=designermarken]");
 
-    @FindBy(css = "")
-    private SelenideElement fitsNavigator;
+    private SelenideElement fitsNavigator = $("*[data-flyout-target=passend-zur-tasche]");
 
-    @FindBy(css = "")
-    private SelenideElement saleNavigator;
+    private SelenideElement saleNavigator = $("*[title=Sale]");
 
-    @FindBy(css = "")
-    private SelenideElement newNavigator;
+    private SelenideElement newNavigator = $("[title=New]");
 
-    @FindBy(css = "")
-    private SelenideElement seachButton;
+    private SelenideElement seachButton = $(".header__search-icon");
 
-//    @FindBy(css = "header__user-icon")
-//    private SelenideElement loginButton;
+    private SelenideElement loginButton = $(".header__user-icon");
 
-    @FindBy(css = "")
-    private SelenideElement phoneData;
+    private SelenideElement phoneData = $(".header__phone");
+
+    private SelenideElement logo = $(".logo-claim");
 
 
-    private SelenideElement logo=$(".logo-claim");
-    private SelenideElement loginButton=$(".header__user-icon");
-
-    public Header(){
+    public Header() {
         loginButton.shouldBe(Condition.visible);
     }
 
-    public LoginPage goToLoginPage(){
+    public LoginPage goToLoginPage() {
         loginButton.click();
-        return page(LoginPage.class);
+        return new LoginPage();
     }
 
 

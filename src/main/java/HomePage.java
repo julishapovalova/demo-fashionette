@@ -6,19 +6,20 @@ import static com.codeborne.selenide.Selenide.page;
 
 public class HomePage {
 
-    Header header;
-    /*Header header;
-    Footer footer;
+    public Header header;
+/*    Footer footer;
     PageBody body;*/
-    HomePage(){
-        header=new Header();
+
+
+    HomePage() {
+        header = new Header();
     }
 
-//    public HomePage open(){
-//        Selenide.open("https://www.fashionette.de/");
+    public HomePage open() {
+        Selenide.open("/");
+        return new HomePage();
 //        return this;
-//    }
-
+    }
 
 
 }
