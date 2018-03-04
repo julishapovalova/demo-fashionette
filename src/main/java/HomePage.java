@@ -18,7 +18,6 @@ public class HomePage {
     public static HomePage open() {
         Selenide.open("/");
         return new HomePage();
-//        return this;
     }
 
 
