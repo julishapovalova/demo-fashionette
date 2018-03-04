@@ -1,7 +1,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Suite1" verbose="1" >
-    <test name="Nopackage" >
+    <test name="Test in Login Page" >
+        <classes>
+            <class name="LoginPageTest" />
+        </classes>
+    </test>
+    
+    <test name="Test in Home Page" >
         <classes>
             <class name="HomePageTest" />
         </classes>

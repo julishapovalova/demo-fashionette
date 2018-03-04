@@ -15,7 +15,7 @@ public class HomePage {
         header = new Header();
     }
 
-    public HomePage open() {
+    public static HomePage open() {
         Selenide.open("/");
         return new HomePage();
 //        return this;
