@@ -1,15 +1,23 @@
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
 public class LoginPageTest extends Background {
-    LoginPage loginPage;
+    LoginFrame loginFrame;
+    AccountPage accountPage;
 
+    @Test(dataProvider = "loginDataPositive", dataProviderClass = Parametrs.class)
+    public void canLoginPositive(String email, String password) {
+        loginFrame = LoginFrame.open();
+        accountPage=loginFrame.login(email, password);
+        Assert.assertTrue(accountPage.isVisiblePersondata());
+    }
 
-    @Test(dataProvider = "loginData", dataProviderClass = Parametrs.class)
-    public void canLogin(String email, String password) {
-        loginPage = LoginPage.open();
-        loginPage.login(email, password);
-
+    @Test(dataProvider = "loginDataNegative", dataProviderClass = Parametrs.class)
+    public void canLoginNegative(String email, String password) {
+        loginFrame = LoginFrame.open();
+        accountPage=loginFrame.login(email, password);
+        Assert.assertFalse(accountPage.isVisiblePersondata());
     }
 
 }

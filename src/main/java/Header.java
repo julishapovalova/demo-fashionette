@@ -1,7 +1,5 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.FindBy;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
@@ -32,9 +30,9 @@ public class Header {
         loginButton.shouldBe(Condition.visible);
     }
 
-    public LoginPage goToLoginPage() {
+    public LoginFrame goToLoginPage() {
         loginButton.click();
-        return new LoginPage();
+        return new LoginFrame();
     }
 
 

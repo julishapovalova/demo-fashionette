@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class LoginPage {
+public class LoginFrame {
 
     private SelenideElement loginButton = $(By.xpath("//button[contains(text(),\"Einloggen\")]"));
     private SelenideElement usernameInput = $(By.xpath("//input[@name='email']"));
@@ -15,21 +15,24 @@ public class LoginPage {
     private SelenideElement errorLogin=$(".login__errortext");
 
 
-    LoginPage() {
-        passwordInput.shouldBe(Condition.visible);
+    LoginFrame() {
+
+        passwordInput.shouldBe(Condition.visible
+        );
     }
 
-    public void login(String username, String password) {
+    public AccountPage login(String username, String password) {
         usernameInput.setValue(username);
-        errorEmail.shouldNot(Condition.visible);
+//        errorEmail.shouldNot(Condition.visible);
         passwordInput.setValue(password);
-        errorPassword.shouldNot(Condition.appear);
-        loginButton.click();
+//        errorPassword.shouldNot(Condition.appear);
+        loginButton.getWrappedElement().click();
+        return new AccountPage();
     }
 
 
-    public static LoginPage open() {
+    public static LoginFrame open() {
         Selenide.open("/login");
-        return new LoginPage();
+        return new LoginFrame();
     }
 }

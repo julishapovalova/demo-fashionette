@@ -6,12 +6,12 @@ import static com.codeborne.selenide.Selenide.*;
 public class HomePageTest extends Background {
 
     HomePage homePage;
-    LoginPage loginPage;
+    LoginFrame loginFrame;
 
     @Test
     public void openPage() {
         homePage = new HomePage();
-        loginPage = homePage.header.goToLoginPage();
+        loginFrame = homePage.header.goToLoginPage();
         String titleOfHomePage = title();
         Assert.assertEquals(titleOfHomePage, "Designer Handtaschen & Accessoires online kaufen - fashionette");
     }
