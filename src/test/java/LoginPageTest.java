@@ -6,11 +6,22 @@ public class LoginPageTest extends Background {
     LoginFrame loginFrame;
     AccountPage accountPage;
 
+
+    /**
+     * test buy pattern Arrange-Act-Assert
+     * @param email
+     * @param password
+     * @param result
+     */
     @Test(dataProvider = "loginDataPositive", dataProviderClass = LoginData.class)
     public void canLoginPositive(String email, String password,boolean result) {
         System.out.println("In Test   "+email);
-        accountPage=loginFrame.open().login(email, password);
-        Assert.assertEquals(accountPage.isVisiblePersondata(),result);
+        loginFrame.open();
+        accountPage=loginFrame.login(email,password);
+
+        boolean actual=accountPage.isVisiblePersondata();
+
+        Assert.assertEquals(result,actual);
     }
 
 //    @Test(dataProvider = "loginDataNegative", dataProviderClass = LoginData.class)
