@@ -13,8 +13,8 @@ public class LoginData {
         return data;
     }
 
-    @DataProvider(name = "loginDataPositive1")
-    public static Object[][] loginData1() {
+    @DataProvider(name = "loginTestData")
+    public static Object[][] loginTestData() {
         Object[][] data = new Object[][]{
                 {"hello", "", null},
                 {"hello1", "hello2", null},

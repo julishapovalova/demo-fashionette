@@ -25,6 +25,13 @@ public class LoginFrame {
 
         return new AccountPage();
     }
+    public AccountPage login(String username, String password,String nickname) {
+        usernameInput.setValue(username);
+        passwordInput.setValue(password);
+        loginButton.getWrappedElement().click();
+
+        return new AccountPage(nickname);
+    }
 
 
     public static LoginFrame open() {

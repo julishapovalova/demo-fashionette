@@ -15,8 +15,7 @@ public class AccountPage {
                              nickName=$(".account__firstname");
 
     public AccountPage(String email) {
-        nickName.shouldHave(Condition.matchText(email));
-//        personData.shouldBe(Condition.visible);
+        nickName.shouldBe(Condition.exactText(email));
     }
 
     public AccountPage() {
