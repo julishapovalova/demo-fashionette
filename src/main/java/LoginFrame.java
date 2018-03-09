@@ -9,10 +9,7 @@ public class LoginFrame {
 
     private SelenideElement loginButton = $(By.xpath("//button[contains(text(),\"Einloggen\")]")),
             usernameInput = $(By.xpath("//input[@name='email']")),
-            passwordInput = $(By.xpath("//input[@name='password']")),
-            errorEmail=$("#email-error"),
-            errorPassword=$("#password-error"),
-            errorLogin=$(".login__errortext");
+            passwordInput = $(By.xpath("//input[@name='password']"));
 
     LoginFrame() {
         passwordInput.shouldBe(Condition.visible);

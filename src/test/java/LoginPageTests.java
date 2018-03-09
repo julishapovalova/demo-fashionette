@@ -8,7 +8,7 @@ public class LoginPageTests extends Background {
     LoginFrame loginFrame;
     AccountPage accountPage;
 
-    @Test(dataProvider = "loginDataPositive", dataProviderClass = LoginData.class)
+    @Test(dataProvider = "loginTestData", dataProviderClass = LoginData.class)
     public void canLogin(String email, String password, boolean result) {
         accountPage = loginFrame.open().login(email, password);
 

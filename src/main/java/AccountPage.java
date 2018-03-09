@@ -12,27 +12,18 @@ public class AccountPage {
 
 
     private SelenideElement personData = $($x("//a[@class='account__headline accordion--active']")),
-                             nickName=$(".account__firstname");
+            nickName = $(".account__firstname");
 
     public AccountPage(String email) {
         nickName.shouldHave(Condition.matchText(email));
-//        personData.shouldBe(Condition.visible);
     }
 
     public AccountPage() {
     }
 
-    public boolean isVisiblePersonData(){
-        if(personData.isDisplayed())
+    public boolean isVisiblePersonData() {
+        if (personData.isDisplayed())
             return true;
         return false;
-    }
-
-    public SelenideElement getPersonData() {
-        return personData;
-    }
-
-    public SelenideElement getNickName() {
-        return nickName;
     }
 }
