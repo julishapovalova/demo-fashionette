@@ -7,26 +7,22 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class LoginFrame {
 
-    private SelenideElement loginButton = $(By.xpath("//button[contains(text(),\"Einloggen\")]"));
-    private SelenideElement usernameInput = $(By.xpath("//input[@name='email']"));
-    private SelenideElement passwordInput = $(By.xpath("//input[@name='password']"));
-    private SelenideElement errorEmail=$("#email-error");
-    private SelenideElement errorPassword=$("#password-error");
-    private SelenideElement errorLogin=$(".login__errortext");
-
+    private SelenideElement loginButton = $(By.xpath("//button[contains(text(),\"Einloggen\")]")),
+            usernameInput = $(By.xpath("//input[@name='email']")),
+            passwordInput = $(By.xpath("//input[@name='password']")),
+            errorEmail=$("#email-error"),
+            errorPassword=$("#password-error"),
+            errorLogin=$(".login__errortext");
 
     LoginFrame() {
-
-        passwordInput.shouldBe(Condition.visible
-        );
+        passwordInput.shouldBe(Condition.visible);
     }
 
     public AccountPage login(String username, String password) {
         usernameInput.setValue(username);
-//        errorEmail.shouldNot(Condition.visible);
         passwordInput.setValue(password);
-//        errorPassword.shouldNot(Condition.appear);
         loginButton.getWrappedElement().click();
+
         return new AccountPage();
     }
 

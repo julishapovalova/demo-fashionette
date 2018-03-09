@@ -8,9 +8,6 @@ public class HomePage {
 
     public Header header;
     public LoginFrame loginFrame;
-/*    Footer footer;
-    PageBody body;*/
-
 
     HomePage() {
         header = new Header();
