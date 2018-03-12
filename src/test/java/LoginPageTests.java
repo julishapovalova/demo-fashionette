@@ -25,22 +25,4 @@ public class LoginPageTests extends Background {
         Selenide.clearBrowserCookies();
         Selenide.refresh();
     }
-    
-    @Test(dataProvider = "loginTestData", dataProviderClass = LoginData.class)
-    public void canLogin1(String email, String password, String expectedUserName) {
-        loginFrame = loginFrame.open();
-
-
-        accountPage = loginFrame.login(email, password);
-        String actualUserName = accountPage.getNickName().getText();
-
-        Assert.assertEquals(actualUserName,expectedUserName);
-    }
-
-    @Test(dataProvider = "loginTestData", dataProviderClass = LoginData.class)
-    public void canLogin2(String email, String password, String expectedUserName) {
-        loginFrame = loginFrame.open();
-
-        accountPage = loginFrame.login(email, password,expectedUserName);
-    }
 }
