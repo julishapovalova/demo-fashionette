@@ -4,10 +4,11 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class LoginFrame {
 
-    private SelenideElement loginButton = $(("div.btn-default button")),
+    private SelenideElement loginButton =  $($x("*//div[@class='page-content']//div[4]//button")),
             usernameInput = $(By.xpath("//input[@name='email']")),
             passwordInput = $(By.xpath("//input[@name='password']"));
 
