@@ -13,6 +13,7 @@ public class LoginPageTests extends Background {
     @Test(dataProvider = "loginTestData", dataProviderClass = LoginData.class)
     public void canLogin(String email, String password, String expectedUserName) {
         loginFrame = loginFrame.open();
+
         accountPage = loginFrame.login(email, password);
 
         accountPage.getPersonData().shouldBe(Condition.visible);
@@ -28,8 +29,9 @@ public class LoginPageTests extends Background {
     @Test(dataProvider = "loginTestData", dataProviderClass = LoginData.class)
     public void canLogin1(String email, String password, String expectedUserName) {
         loginFrame = loginFrame.open();
-        accountPage = loginFrame.login(email, password);
 
+
+        accountPage = loginFrame.login(email, password);
         String actualUserName = accountPage.getNickName().getText();
 
         Assert.assertEquals(actualUserName,expectedUserName);
@@ -40,6 +42,5 @@ public class LoginPageTests extends Background {
         loginFrame = loginFrame.open();
 
         accountPage = loginFrame.login(email, password,expectedUserName);
-
     }
 }
