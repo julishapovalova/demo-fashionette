@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class LoginFrame {
 
-    private SelenideElement loginButton = $(("div.btn-default button:last-of-type")),
+    private SelenideElement loginButton = $(("div.btn-default button")),
             usernameInput = $(By.xpath("//input[@name='email']")),
             passwordInput = $(By.xpath("//input[@name='password']"));
 
