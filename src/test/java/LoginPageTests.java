@@ -1,28 +1,22 @@
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
-import org.openqa.selenium.NoSuchElementException;
-import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.assertTrue;
 
-public class LoginPageTests extends Background {
-    LoginFrame loginFrame;
-    AccountPage accountPage;
+
+public class LoginPageTests extends BaseTest {
 
     @Test(dataProvider = "loginTestData", dataProviderClass = LoginData.class)
     public void canLogin(String email, String password, String expectedUserName) {
-        loginFrame = loginFrame.open();
+        LoginPage loginPage = new LoginPage();
+        loginPage.open();
 
-        accountPage = loginFrame.login(email, password);
+        AccountPage accountPage = loginPage.login(email, password);
+        String accountPageUrl = accountPage.checkedIsOpen();
 
-        accountPage.getPersonData().shouldBe(Condition.visible);
+        assertTrue(accountPageUrl.contains("account/customer"));
         accountPage.getNickName().shouldBe(Condition.text(expectedUserName));
     }
 
-    @AfterMethod
-    public void logOut(){
-        Selenide.clearBrowserCookies();
-        Selenide.refresh();
-    }
+
 }

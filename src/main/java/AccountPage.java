@@ -1,30 +1,19 @@
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
-import static com.codeborne.selenide.Selenide.page;
 
-public class AccountPage {
+public class AccountPage extends BasePage {
 
 
-    private SelenideElement personData = $($x("//a[@class='account__headline accordion--active']")),
-                             nickName=$(".account__firstname");
+    private SelenideElement personData = $x("//a[@class='account__headline accordion--active']");
+    private SelenideElement nickName = $(".account__firstname");
 
-    public AccountPage(String email) {
-        nickName.shouldBe(Condition.exactText(email));
+    AccountPage() {
     }
 
-    public AccountPage() {
-    }
-
-    public boolean isVisiblePersonData(){
-        if(personData.isDisplayed())
-            return true;
-        return false;
+    public boolean isVisiblePersonData() {
+        return personData.isDisplayed();
     }
 
     public SelenideElement getPersonData() {

@@ -1,19 +1,15 @@
 import com.codeborne.selenide.Selenide;
 
-
-public class HomePage {
+public class HomePage extends BasePage {
 
     public Header header;
-    public LoginFrame loginFrame;
 
     HomePage() {
         header = new Header();
     }
 
-    public static HomePage open() {
+    @Override
+    public void open() {
         Selenide.open("/");
-        return new HomePage();
     }
-
-
 }
