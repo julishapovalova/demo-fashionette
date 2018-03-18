@@ -6,17 +6,17 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class BaseTest {
 
-    @BeforeSuite
+    @BeforeSuite(alwaysRun = true)
     public void setUp() {
         Configuration.baseUrl = "https://www.fashionette.de";
         open(Configuration.baseUrl);
     }
 
-    @BeforeClass(dependsOnGroups = "validationError")
+    @BeforeGroups(groups = "validationError")
+    @BeforeClass()
     public void setUpBeforeClass() {
         LoginPage loginPage = new LoginPage();
         loginPage.open();
-        System.out.println("Before Class validationError");
     }
 
     @AfterMethod(dependsOnGroups = "validationError")

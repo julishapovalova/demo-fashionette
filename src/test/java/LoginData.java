@@ -9,7 +9,7 @@ public class LoginData {
         };
     }
 
-    @DataProvider
+    @DataProvider(name = "loginValidEmailTestData")
     public Object[][] loginValidEmailTestData() {
         return new Object[][]{
                 {"YULIIA@GMAIL.COM"},
@@ -24,7 +24,7 @@ public class LoginData {
         };
     }
 
-    @DataProvider
+    @DataProvider(name = "loginInalidEmailTestData")
     public Object[][] loginInvalidEmailTestData() {
         return new Object[][]{
                 {"", "Bitte gib Deine E-Mail-Adresse ein."},
@@ -38,7 +38,7 @@ public class LoginData {
         };
     }
 
-    @DataProvider
+    @DataProvider(name = "loginValidPasswordTestData")
     public Object[][] loginValidPasswordTestData() {
         return new Object[][]{
                 {"qwerty12345"},
@@ -46,7 +46,7 @@ public class LoginData {
         };
     }
 
-    @DataProvider
+    @DataProvider(name = "loginInvalidPasswordTestData")
     public Object[][] loginInvalidPasswordTestData() {
         return new Object[][]{
                 {"", "Bitte gib Dein Passwort ein."},

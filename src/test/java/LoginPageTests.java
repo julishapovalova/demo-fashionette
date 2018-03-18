@@ -10,7 +10,6 @@ public class LoginPageTests extends BaseTest {
     @Test(dataProvider = "loginTestData", dataProviderClass = LoginData.class)
     public void canLogin(String email, String password, String expectedUserName) {
         LoginPage loginPage = new LoginPage();
-        loginPage.open();
 
         AccountPage accountPage = loginPage.login(email, password);
 
