@@ -9,9 +9,8 @@ public class HomePageTest extends BaseTest {
         HomePage homePage = new HomePage();
 
         LoginPage loginPage = homePage.header.goToLoginPage();
-        String loginUrl = loginPage.checkedIsOpen();
 
-        Assert.assertTrue(loginUrl.contains("login"));
+        Assert.assertTrue(loginPage.checkedIsOpen("/login"));
     }
 
 }

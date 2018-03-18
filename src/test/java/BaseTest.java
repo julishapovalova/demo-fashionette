@@ -12,6 +12,18 @@ public class BaseTest {
         open(Configuration.baseUrl);
     }
 
+    @BeforeClass(dependsOnGroups = "validationError")
+    public void setUpBeforeClass() {
+        LoginPage loginPage = new LoginPage();
+        loginPage.open();
+        System.out.println("Before Class validationError");
+    }
+
+    @AfterMethod(dependsOnGroups = "validationError")
+    public void tearDown() {
+        Selenide.refresh();
+    }
+
     @AfterMethod
     public void logOut() {
         Selenide.clearBrowserCookies();

@@ -11,7 +11,7 @@ public class BasePage {
         Selenide.open("");
     }
 
-    String checkedIsOpen() {
-        return url();
+    boolean checkedIsOpen(String expectedUrl) {
+        return url().contains(expectedUrl);
     }
 }
