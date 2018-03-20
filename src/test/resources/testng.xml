@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Suite1" verbose="1" parallel="tests" thread-count="2">
+<suite name="Suite1" verbose="1" >
     <listeners>
         <listener class-name="org.uncommons.reportng.HTMLReporter"/>
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
@@ -13,11 +13,9 @@
             </run>
         </groups>
         <classes>
-            <class name="LoginPageTests">
-            </class>
+            <class name="LoginPageTests"/>
         </classes>
     </test>
-
     <test name="Can See Error Message">
         <groups>
             <run>
