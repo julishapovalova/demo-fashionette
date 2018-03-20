@@ -1,16 +1,57 @@
 import org.testng.annotations.DataProvider;
 
 public class LoginData {
-    @DataProvider(name = "loginDataPositive")
-    public static Object[][] loginData() {
-        Object[][] data = new Object[][]{
-                {"hello", "", false},
-                {"hello1", "hello2", false},
-                {"", "hello2", false},
-                {"", "", false},
-                {"julianna197@gmail.com", "qwerty123456", true}
+
+    @DataProvider(name = "loginTestData")
+    public static Object[][] loginTestData() {
+        return new Object[][]{
+                {"julianna197@gmail.com", "qwerty123456", "Yuliia"}
         };
-        return data;
     }
 
+    @DataProvider(name = "loginValidEmailTestData")
+    public Object[][] loginValidEmailTestData() {
+        return new Object[][]{
+                {"YULIIA@GMAIL.COM"},
+                {"yuliia7@gmail.com"},
+                {"yulii7@gmail1.com"},
+                {"yuliia-sh@gmail1.com"},
+                {"yuliia@gma-il1.com"},
+                {"yuliia_s@gmail1.com"},
+                {"yuliia@gma_il.com"},
+                {"yuli.ia@gmail.com"},
+                {"yuli..ia@gmail.com"}
+        };
+    }
+
+    @DataProvider(name = "loginInalidEmailTestData")
+    public Object[][] loginInvalidEmailTestData() {
+        return new Object[][]{
+                {"", "Bitte gib Deine E-Mail-Adresse ein."},
+                {"yuliia@gmailcom", "Bitte gib Deine E-Mail-Adresse im richtigen Format ein."},
+                {"yul iia@gmail.com", "Bitte gib Deine E-Mail-Adresse im richtigen Format ein."},
+                {"yuliia@gm ail.com", "Bitte gib Deine E-Mail-Adresse im richtigen Format ein."},
+                {"@gmail.com", "Bitte gib Deine E-Mail-Adresse im richtigen Format ein."},
+                {"yuliia", "Bitte gib Deine E-Mail-Adresse im richtigen Format ein."},
+                {"yuliiagmailcom", "Bitte gib Deine E-Mail-Adresse im richtigen Format ein."},
+                {"ydddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddduliia@gmailcom", "Bitte gib Deine E-Mail-Adresse im richtigen Format ein."}
+        };
+    }
+
+    @DataProvider(name = "loginValidPasswordTestData")
+    public Object[][] loginValidPasswordTestData() {
+        return new Object[][]{
+                {"qwerty12345"},
+                {"qwertyui"}
+        };
+    }
+
+    @DataProvider(name = "loginInvalidPasswordTestData")
+    public Object[][] loginInvalidPasswordTestData() {
+        return new Object[][]{
+                {"", "Bitte gib Dein Passwort ein."},
+                {"a", "Das Passwort muss mindestens 8 Zeichen lang sein und mindestens eine Zahl enthalten."},
+                {"1234567", "Das Passwort muss mindestens 8 Zeichen lang sein und mindestens eine Zahl enthalten."},
+        };
+    }
 }

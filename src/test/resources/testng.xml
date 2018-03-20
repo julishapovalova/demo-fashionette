@@ -1,15 +1,31 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Suite1" verbose="1" parallel="tests" thread-count="2">
-    <test name="Test in Login Page" >
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    </listeners>
+
+    <test name="Can Login">
+        <groups>
+            <run>
+                <exclude name="validationError"/>
+            </run>
+        </groups>
         <classes>
-            <class name="LoginPageTest" />
+            <class name="LoginPageTests">
+            </class>
         </classes>
     </test>
 
-    <test name="Test in Home Page" >
+    <test name="Can See Error Message">
+        <groups>
+            <run>
+                <include name="validationError"/>
+            </run>
+        </groups>
         <classes>
-            <class name="HomePageTest" />
+            <class name="LoginPageTests"/>
         </classes>
     </test>
 </suite>

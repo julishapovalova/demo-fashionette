@@ -1,25 +1,16 @@
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.page;
 
-public class AccountPage {
+public class AccountPage extends BasePage {
 
 
-    private SelenideElement personData = $(By.xpath("//a[@class='account__headline accordion--active']"));
+    private SelenideElement nickName = $(".account__firstname");
 
-    public AccountPage(String email) {
-        personData.shouldBe(Condition.visible);
+    AccountPage() {
     }
 
-    public AccountPage() {
-    }
-
-    public boolean isVisiblePersondata(){
-        if(personData.isDisplayed())
-            return true;
-        return false;
+    public String getUserName() {
+        return nickName.text();
     }
 }
