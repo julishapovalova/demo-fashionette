@@ -24,7 +24,7 @@ public class LoginData {
         };
     }
 
-    @DataProvider(name = "loginInalidEmailTestData")
+    @DataProvider(name = "loginInvalidEmailTestData")
     public Object[][] loginInvalidEmailTestData() {
         return new Object[][]{
                 {"", "Bitte gib Deine E-Mail-Adresse ein."},
@@ -34,7 +34,7 @@ public class LoginData {
                 {"@gmail.com", "Bitte gib Deine E-Mail-Adresse im richtigen Format ein."},
                 {"yuliia", "Bitte gib Deine E-Mail-Adresse im richtigen Format ein."},
                 {"yuliiagmailcom", "Bitte gib Deine E-Mail-Adresse im richtigen Format ein."},
-                {"ydddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddduliia@gmailcom", "Bitte gib Deine E-Mail-Adresse im richtigen Format ein."}
+                {"ydddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddduliia@gmailcom", "Bitte gib Deine E-Mail-Adresse im richtigen Format ein."},
         };
     }
 
@@ -51,7 +51,7 @@ public class LoginData {
         return new Object[][]{
                 {"", "Bitte gib Dein Passwort ein."},
                 {"a", "Das Passwort muss mindestens 8 Zeichen lang sein und mindestens eine Zahl enthalten."},
-                {"1234567", "Das Passwort muss mindestens 8 Zeichen lang sein und mindestens eine Zahl enthalten."},
+                {"1234567", "Das Passwort muss mindestens 8 Zeichen lang sein und mindestens eine Zahl enthalten."}
         };
     }
 }
