@@ -8,12 +8,19 @@ public class BaseTest {
 
     @BeforeSuite(alwaysRun = true)
     public void setUp() {
+        Configuration.browser = "chrome";
+        Configuration.timeout = 1000;
         Configuration.baseUrl = "https://www.fashionette.de";
+    }
+
+    @BeforeTest
+    public void setUpBeforeTest() {
         open(Configuration.baseUrl);
     }
 
-    @BeforeGroups(groups = "validationError")
-    @BeforeClass()
+
+//    @BeforeGroups(groups = "validationError")
+    @BeforeClass
     public void setUpBeforeClass() {
         LoginPage loginPage = new LoginPage();
         loginPage.open();

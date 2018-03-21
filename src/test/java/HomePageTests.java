@@ -9,7 +9,7 @@ public class HomePageTests extends BaseTest {
         HomePage homePage = new HomePage();
 
         LoginPage loginPage = homePage.header.goToLoginPage();
-
+        System.out.println("HomePage tests\n");
         Assert.assertTrue(loginPage.checkedIsOpen("/login"));
     }
 
