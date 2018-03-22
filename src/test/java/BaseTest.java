@@ -6,24 +6,11 @@ public class BaseTest {
 
     @BeforeSuite(alwaysRun = true)
     public void setUp() {
-        System.out.println("Before Suite" + Thread.currentThread().getId());
         Configuration.browser = "chrome";
         Configuration.timeout = 1000;
         Configuration.baseUrl = "https://www.fashionette.de";
     }
 
-    @BeforeTest
-    public void setUpBeforeTest() {
-        System.out.println("setUpBeforeTest " + Thread.currentThread().getId());
-        Selenide.open(Configuration.baseUrl);
-
-    }
-
-    @BeforeClass
-    public void setUpBeforeClass() {
-        Selenide.open(Configuration.baseUrl);
-
-    }
 
     @BeforeMethod
     public void setUpBeforeMethod() {
@@ -32,7 +19,7 @@ public class BaseTest {
         loginPage.open();
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void tearDownAfterMethod() {
         Selenide.clearBrowserCookies();
         Selenide.refresh();

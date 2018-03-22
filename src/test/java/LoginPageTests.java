@@ -9,8 +9,6 @@ public class LoginPageTests extends BaseTest {
 
     @Test(dataProvider = "loginTestData", dataProviderClass = LoginData.class)
     public void canLogin(String email, String password, String expectedUserName) {
-        System.out.println("TestCanLogin" + Thread.currentThread().getId());
-
         LoginPage loginPage = new LoginPage();
 
         AccountPage accountPage = loginPage.login(email, password);
