@@ -2,14 +2,14 @@ import org.testng.annotations.DataProvider;
 
 public class LoginData {
 
-    @DataProvider(name = "loginTestData")
+    @DataProvider(name = "loginTestData", parallel = true)
     public static Object[][] loginTestData() {
         return new Object[][]{
                 {"julianna197@gmail.com", "qwerty123456", "Yuliia"}
         };
     }
 
-    @DataProvider(name = "loginValidEmailTestData")
+    @DataProvider(name = "loginValidEmailTestData", parallel = true)
     public Object[][] loginValidEmailTestData() {
         return new Object[][]{
                 {"YULIIA@GMAIL.COM"},
@@ -24,7 +24,7 @@ public class LoginData {
         };
     }
 
-    @DataProvider(name = "loginInvalidEmailTestData")
+    @DataProvider(name = "loginInvalidEmailTestData", parallel = true)
     public Object[][] loginInvalidEmailTestData() {
         return new Object[][]{
                 {"", "Bitte gib Deine E-Mail-Adresse ein."},
@@ -38,7 +38,7 @@ public class LoginData {
         };
     }
 
-    @DataProvider(name = "loginValidPasswordTestData")
+    @DataProvider(name = "loginValidPasswordTestData", parallel = true)
     public Object[][] loginValidPasswordTestData() {
         return new Object[][]{
                 {"qwerty12345"},
@@ -46,7 +46,7 @@ public class LoginData {
         };
     }
 
-    @DataProvider(name = "loginInvalidPasswordTestData")
+    @DataProvider(name = "loginInvalidPasswordTestData", parallel = true)
     public Object[][] loginInvalidPasswordTestData() {
         return new Object[][]{
                 {"", "Bitte gib Dein Passwort ein."},

@@ -52,9 +52,6 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                    <systemPropertyVariables>
-                        <selenide.browser>chrome</selenide.browser>
-                    </systemPropertyVariables>
                 </configuration>
             </plugin>
         </plugins>

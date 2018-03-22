@@ -9,6 +9,8 @@ public class LoginPageTests extends BaseTest {
 
     @Test(dataProvider = "loginTestData", dataProviderClass = LoginData.class)
     public void canLogin(String email, String password, String expectedUserName) {
+        System.out.println("TestCanLogin" + Thread.currentThread().getId());
+
         LoginPage loginPage = new LoginPage();
 
         AccountPage accountPage = loginPage.login(email, password);
@@ -18,19 +20,22 @@ public class LoginPageTests extends BaseTest {
         String actualUserName = accountPage.getUserName();
 
         assertTrue(actualUserName.equals(expectedUserName));
-    }
 
+    }
     @Test(dataProvider = "loginValidEmailTestData", dataProviderClass = LoginData.class, groups = "validationError")
     public void canNotSeeValidationEmailError(String email) {
+        setUpBeforeMethod();
         LoginPage loginPage = new LoginPage();
 
         loginPage.setEmailInput(email);
 
         assertFalse(loginPage.checkedIsEmailCorrect());
+
     }
 
     @Test(dataProvider = "loginInvalidEmailTestData", dataProviderClass = LoginData.class, groups = "validationError")
     public void canSeeValidationEmailError(String email, String errorMessage) {
+        setUpBeforeMethod();
         LoginPage loginPage = new LoginPage();
 
         loginPage.setEmailInput(email);
@@ -42,6 +47,7 @@ public class LoginPageTests extends BaseTest {
 
     @Test(dataProvider = "loginValidPasswordTestData", dataProviderClass = LoginData.class, groups = "validationError")
     public void canNotSeeValidationPasswordError(String email) {
+        setUpBeforeMethod();
         LoginPage loginPage = new LoginPage();
 
         loginPage.setPasswordInput(email);
@@ -51,6 +57,7 @@ public class LoginPageTests extends BaseTest {
 
     @Test(dataProvider = "loginInvalidPasswordTestData", dataProviderClass = LoginData.class, groups = "validationError")
     public void canSeeValidationPasswordError(String password, String errorMessage) {
+        setUpBeforeMethod();
         LoginPage loginPage = new LoginPage();
 
         loginPage.setPasswordInput(password);
@@ -58,6 +65,5 @@ public class LoginPageTests extends BaseTest {
         assertTrue(loginPage.checkedIsPasswordCorrect());
         assertEquals(loginPage.getPasswordError(), errorMessage);
     }
-
 
 }

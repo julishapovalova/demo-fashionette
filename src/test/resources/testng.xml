@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Suite1" verbose="1"  parallel="tests" thread-count="3" >
+<suite name="Suite1" parallel="tests" thread-count="1" data-provider-thread-count="3">
     <listeners>
         <listener class-name="org.uncommons.reportng.HTMLReporter"/>
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
@@ -17,14 +17,15 @@
         </classes>
     </test>
 
-    <test name="Can See Error Message">
+    <test name="Validation Login" parallel="methods" thread-count="2">
         <groups>
             <run>
-                <include name="validationError"/>
+                <include name="validationError" />
             </run>
         </groups>
         <classes>
-            <class name="LoginPageTests"/>
+            <class name="LoginPageTests" />
         </classes>
     </test>
+
 </suite>
