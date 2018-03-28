@@ -24,8 +24,9 @@ public class LoginPage extends BasePage {
     }
 
     @Override
-    public void open() {
+    public LoginPage open() {
         Selenide.open("/login");
+        return new LoginPage();
     }
 
     public void setEmailInput(String email) {

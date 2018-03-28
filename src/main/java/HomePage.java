@@ -9,7 +9,8 @@ public class HomePage extends BasePage {
     }
 
     @Override
-    public void open() {
+    public HomePage open() {
         Selenide.open("/");
+        return new HomePage();
     }
 }

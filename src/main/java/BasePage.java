@@ -7,8 +7,9 @@ public class BasePage {
     BasePage() {
     }
 
-    public void open() {
+    public BasePage open() {
         Selenide.open("");
+        return new BasePage();
     }
 
     boolean checkedIsOpen(String expectedUrl) {
