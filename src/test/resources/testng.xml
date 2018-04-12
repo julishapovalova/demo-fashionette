@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Suite1" parallel="tests" thread-count="1" data-provider-thread-count="1">
+<suite name="Suite1" parallel="tests" thread-count="1" data-provider-thread-count="3">
     <listeners>
         <listener class-name="com.epam.reportportal.testng.ReportPortalTestNGListener"/>
     </listeners>
@@ -16,15 +16,15 @@
         </classes>
     </test>
 
-    <!--<test name="Validation Login" parallel="methods" thread-count="2">-->
-        <!--<groups>-->
-            <!--<run>-->
-                <!--<include name="validationError" />-->
-            <!--</run>-->
-        <!--</groups>-->
-        <!--<classes>-->
-            <!--<class name="LoginPageTests" />-->
-        <!--</classes>-->
-    <!--</test>-->
+    <test name="Validation Login" parallel="methods" thread-count="2">
+        <groups>
+            <run>
+                <include name="validationError" />
+            </run>
+        </groups>
+        <classes>
+            <class name="LoginPageTests" />
+        </classes>
+    </test>
 
 </suite>

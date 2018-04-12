@@ -11,7 +11,6 @@ public class BaseTest {
         Configuration.browser = "chrome";
         Configuration.timeout = 1000;
         Configuration.baseUrl = "https://www.fashionette.de";
-        System.out.println("BeforeSuite" + Thread.currentThread().getId());
     }
 
 
@@ -22,14 +21,13 @@ public class BaseTest {
 
     @AfterMethod(alwaysRun = true)
     public void tearDownAfterMethod() {
-        WebDriverRunner.getWebDriver().quit();
+        Selenide.clearBrowserCookies();
+        Selenide.refresh();
     }
 
 
     @AfterClass(alwaysRun = true)
     public void tearDownAfterClass() {
-        //     WebDriverRunner.closeWebDriver();
-        //    WebDriverRunner.getWebDriver().quit();
-
+        WebDriverRunner.getWebDriver().quit();
     }
 }

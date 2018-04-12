@@ -10,7 +10,7 @@ public class Header {
 
     }
 
-    public LoginPage goToLoginPage() {
+    LoginPage goToLoginPage() {
         loginButton.click();
         return new LoginPage();
     }

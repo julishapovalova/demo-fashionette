@@ -1,10 +1,9 @@
+import com.codeborne.selenide.Condition;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
-
 
 public class LoginPageTests extends BaseTest {
 
@@ -17,18 +16,13 @@ public class LoginPageTests extends BaseTest {
 
     @Test(dataProvider = "loginTestData")
     public void canLogin(String email, String password, String expectedUserName) {
-        System.out.println("loginTestData" + Thread.currentThread().getId());
-
         LoginPage loginPage = new LoginPage().open();
 
         AccountPage accountPage = loginPage.login(email, password);
 
-        assertTrue(accountPage.checkedIsOpen("/account/customer"));
+        assertTrue(accountPage.checkedIsOpen());
 
-        String actualUserName = accountPage.getUserName();
-
-        assertTrue(actualUserName.equals(expectedUserName));
-
+        accountPage.nickName.should(Condition.text(expectedUserName));
     }
 
 
@@ -41,14 +35,11 @@ public class LoginPageTests extends BaseTest {
 
     @Test(dataProvider = "loginValidEmailTestData", groups = "validationError")
     public void canNotSeeValidationEmailError(String email) {
-        System.out.println("canNotSeeValidationEmailError" + Thread.currentThread().getId());
-
         LoginPage loginPage = new LoginPage().open();
 
-        loginPage.setEmailInput(email);
+        loginPage.setInput(loginPage.emailInput, email);
 
-        assertFalse(loginPage.checkedIsEmailCorrect());
-
+        loginPage.emailInput.shouldHave(Condition.attribute("aria-invalid", "false"));
     }
 
     @DataProvider(name = "loginInvalidEmailTestData")
@@ -61,14 +52,12 @@ public class LoginPageTests extends BaseTest {
 
     @Test(dataProvider = "loginInvalidEmailTestData", groups = "validationError")
     public void canSeeValidationEmailError(String email, String errorMessage) {
-        System.out.println("canSeeValidationEmailError" + Thread.currentThread().getId());
-
         LoginPage loginPage = new LoginPage().open();
 
-        loginPage.setEmailInput(email);
+        loginPage.setInput(loginPage.emailInput, email);
 
-        assertTrue(loginPage.checkedIsEmailCorrect());
-        assertEquals(loginPage.getEmailError(), errorMessage);
+        loginPage.emailInput.shouldHave(Condition.attribute("aria-invalid", "true"));
+        assertEquals(loginPage.emailError.text(), errorMessage);
     }
 
     @DataProvider(name = "loginValidPasswordTestData")
@@ -79,14 +68,12 @@ public class LoginPageTests extends BaseTest {
     }
 
     @Test(dataProvider = "loginValidPasswordTestData", groups = "validationError")
-    public void canNotSeeValidationPasswordError(String email) {
-        System.out.println("canNotSeeValidationPasswordError" + Thread.currentThread().getId());
-
+    public void canNotSeeValidationPasswordError(String password) {
         LoginPage loginPage = new LoginPage().open();
 
-        loginPage.setPasswordInput(email);
+        loginPage.setInput(loginPage.passwordInput, password);
 
-        assertFalse(loginPage.checkedIsPasswordCorrect());
+        loginPage.passwordInput.shouldHave(Condition.attribute("aria-invalid", "false"));
     }
 
     @DataProvider(name = "loginInvalidPasswordTestData")
@@ -99,14 +86,12 @@ public class LoginPageTests extends BaseTest {
 
     @Test(dataProvider = "loginInvalidPasswordTestData", groups = "validationError")
     public void canSeeValidationPasswordError(String password, String errorMessage) {
-        System.out.println("canSeeValidationPasswordError" + Thread.currentThread().getId());
-
         LoginPage loginPage = new LoginPage().open();
 
-        loginPage.setPasswordInput(password);
+        loginPage.setInput(loginPage.passwordInput, password);
 
-        assertTrue(loginPage.checkedIsPasswordCorrect());
-        assertEquals(loginPage.getPasswordError(), errorMessage);
+        loginPage.passwordInput.shouldHave(Condition.attribute("aria-invalid", "true"));
+        assertEquals(loginPage.passwordError.text(), errorMessage);
     }
 
 }

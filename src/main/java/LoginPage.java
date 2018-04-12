@@ -6,11 +6,11 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class LoginPage extends BasePage {
 
-    private SelenideElement loginButton = $x("*//div[@class='page-content']//div[4]//button");
-    private SelenideElement emailInput = $x("//input[@name='email']");
-    private SelenideElement passwordInput = $x("//input[@name='password']");
-    private SelenideElement passwordError = $("#password-error");
-    private SelenideElement emailError = $("#email-error");
+     SelenideElement loginButton = $x("*//div[@class='page-content']//div[4]//button");
+     SelenideElement emailInput = $x("//input[@name='email']");
+     SelenideElement passwordInput = $x("//input[@name='password']");
+     SelenideElement passwordError = $("#password-error");
+     SelenideElement emailError = $("#email-error");
 
     LoginPage() {
     }
@@ -29,31 +29,13 @@ public class LoginPage extends BasePage {
         return new LoginPage();
     }
 
-    public void setEmailInput(String email) {
-        emailInput.setValue(email);
-        emailInput.pressTab();
-    }
-
-    public boolean checkedIsEmailCorrect() {
-        return Boolean.valueOf(emailInput.getAttribute("aria-invalid"));
-    }
-
-    public void setPasswordInput(String email) {
-        passwordInput.setValue(email);
-        emailInput.pressTab();
+    boolean checkedIsOpen() {
+        return checkedIsOpen("/login");
 
     }
 
-    public boolean checkedIsPasswordCorrect() {
-        return Boolean.valueOf(passwordInput.getAttribute("aria-invalid"));
+     void setInput(SelenideElement input, String data) {
+        input.setValue(data);
+        input.pressTab();
     }
-
-    public String getPasswordError() {
-        return passwordError.text();
-    }
-
-    public String getEmailError() {
-        return emailError.text();
-    }
-
 }
