@@ -1,10 +1,12 @@
+package Pages;
+
 import com.codeborne.selenide.Selenide;
 
 public class HomePage extends BasePage {
 
     public Header header;
 
-    HomePage() {
+    public HomePage() {
         header = new Header();
     }
 

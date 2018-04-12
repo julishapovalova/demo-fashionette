@@ -1,17 +1,19 @@
+package Pages;
+
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$;
 
-class AccountPage extends BasePage {
+public class AccountPage extends BasePage {
 
 
-    SelenideElement nickName = $(".account__firstname");
+   public SelenideElement nickName = $(".account__firstname");
 
     AccountPage() {
     }
 
 
-    boolean checkedIsOpen() {
+   public boolean checkedIsOpen() {
         return checkedIsOpen("/account/customer");
     }
 }
