@@ -48,11 +48,12 @@
 
         <!--report-->
 
-		<dependency>
+        <dependency>
             <groupId>com.epam.reportportal</groupId>
             <artifactId>agent-java-testng</artifactId>
             <version>4.0.2</version>
         </dependency>
+
         <dependency>
             <groupId>com.epam.reportportal</groupId>
             <artifactId>logger-java-logback</artifactId>
@@ -63,7 +64,7 @@
             <artifactId>logback-classic</artifactId>
             <version>1.2.3</version>
         </dependency>
-		
+
     </dependencies>
     <build>
         <plugins>
@@ -73,7 +74,7 @@
                 <version>2.19.1</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/**/*.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
 
                     <properties>
