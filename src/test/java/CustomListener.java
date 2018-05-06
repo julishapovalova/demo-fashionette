@@ -1,4 +1,3 @@
-import com.epam.reportportal.message.ReportPortalMessage;
 import com.epam.reportportal.service.ReportPortal;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,14 +5,13 @@ import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Calendar;
 
 import static com.codeborne.selenide.Selenide.screenshot;
 
 
-public class ListenerClass extends TestListenerAdapter {
-    final static Logger LOGGER = LoggerFactory.getLogger(ListenerClass.class);
+public class CustomListener extends TestListenerAdapter {
+    final static Logger LOGGER = LoggerFactory.getLogger(CustomListener.class);
 
     @Override
     public void onTestStart(ITestResult tr) {
