@@ -1,3 +1,4 @@
+import com.codeborne.selenide.Selenide;
 import com.epam.reportportal.service.ReportPortal;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -5,7 +6,9 @@ import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.logging.Level;
 
 import static com.codeborne.selenide.Selenide.screenshot;
 
@@ -28,18 +31,16 @@ public class CustomListener extends TestListenerAdapter {
 
     @Override
     public void onTestFailure(ITestResult tr) {
-        String path = screenshot(tr.getMethod().getMethodName() + "Failed");
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+        String path = screenshot(tr.getMethod().getMethodName() + timeStamp);
         File file = new File(path);
         ReportPortal.emitLog("Test " + tr.getMethod().getMethodName() + " failed", "FATAL", Calendar.getInstance().getTime(), file);
-        LOGGER.info(String.valueOf(ReportPortal.emitLog("Test " + tr.getMethod().getMethodName() + " failed", "FATAL", Calendar.getInstance().getTime(), file)));
         LOGGER.info("Test " + tr.getMethod().getMethodName() + " failed");
     }
 
     @Override
     public void onTestSkipped(ITestResult tr) {
-        String path = screenshot(tr.getMethod().getMethodName() + "Skipped");
-        File file = new File(path);
-        LOGGER.info(String.valueOf(ReportPortal.emitLog("Test" + tr.getMethod().getMethodName() + " skipped", "INFO", Calendar.getInstance().getTime(), file)));
+        LOGGER.info("Test" + tr.getMethod().getMethodName() + " skipped");
     }
 }
 
