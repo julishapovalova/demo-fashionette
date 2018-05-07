@@ -1,3 +1,5 @@
+package ui;
+
 import Pages.AccountPage;
 import Pages.LoginPage;
 import com.codeborne.selenide.Condition;

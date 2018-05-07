@@ -1,4 +1,5 @@
-import com.codeborne.selenide.Selenide;
+package listener;
+
 import com.epam.reportportal.service.ReportPortal;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,7 +9,6 @@ import org.testng.TestListenerAdapter;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.logging.Level;
 
 import static com.codeborne.selenide.Selenide.screenshot;
 

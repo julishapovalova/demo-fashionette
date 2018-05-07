@@ -1,3 +1,5 @@
+package ui;
+
 import Pages.HomePage;
 import Pages.LoginPage;
 import org.testng.Assert;

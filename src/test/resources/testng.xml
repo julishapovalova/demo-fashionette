@@ -3,7 +3,7 @@
 <suite name="Suite1" parallel="tests" thread-count="1" data-provider-thread-count="3">
     <listeners>
         <listener class-name="com.epam.reportportal.testng.ReportPortalTestNGListener"/>
-        <listener class-name="CustomListener"/>
+        <listener class-name="listener.CustomListener"/>
     </listeners>
 
     <test name="Can Login">
@@ -13,7 +13,7 @@
             </run>
         </groups>
         <classes>
-            <class name="LoginPageTests"/>
+            <class name="ui.LoginPageTests"/>
         </classes>
     </test>
 
@@ -24,7 +24,7 @@
             </run>
         </groups>
         <classes>
-            <class name="LoginPageTests" />
+            <class name="ui.LoginPageTests" />
         </classes>
     </test>
 
