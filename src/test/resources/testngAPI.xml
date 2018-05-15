@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" parallel="tests" thread-count="1" data-provider-thread-count="3">
+
+    <test name="API tests">
+        <parameter name="baseURL" value="http://localhost:3030"/>
+        <classes>
+            <class name="api.Pages"/>
+        </classes>
+    </test>
+
+</suite>
