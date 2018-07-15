@@ -5,7 +5,7 @@
     <test name="API tests">
         <parameter name="baseURL" value="http://localhost:3030"/>
         <classes>
-            <class name="api.Pages"/>
+            <class name="api.PageTest"/>
         </classes>
     </test>
 

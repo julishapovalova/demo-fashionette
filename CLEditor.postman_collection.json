@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "dc781c94-fb7e-4f17-8317-18f201bced25",
+		"name": "CLEditor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Page",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "charset",
+						"value": "UTF-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"title\":\"Page.8\",\"isTest\":false,\"features\":[]}"
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/pages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"pages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Correct",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "charset",
+						"value": "UTF-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"joe\",\"password\":\"joe\"}"
+				},
+				"url": {
+					"raw": "https://cleditor-v1.herokuapp.com/login",
+					"protocol": "https",
+					"host": [
+						"cleditor-v1",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login invalid",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "charset",
+						"value": "UTF-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"joe\",\"password\":\"joe1\"}"
+				},
+				"url": {
+					"raw": "https://cleditor-v1.herokuapp.com/login",
+					"protocol": "https",
+					"host": [
+						"cleditor-v1",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

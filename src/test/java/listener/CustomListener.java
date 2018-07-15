@@ -18,9 +18,9 @@ public class CustomListener extends TestListenerAdapter {
 
     @Override
     public void onTestStart(ITestResult tr) {
-//        String path = screenshot(tr.getMethod().getMethodName() + "Start");
-//        File file = new File(path);
-//        LOGGER.error(String.valueOf(ReportPortal.emitLog("Test" + tr.getMethod().getMethodName() + " failed", "ERROR", Calendar.getInstance().getTime(), file)));
+        String path = screenshot(tr.getMethod().getMethodName() + "Start");
+        File file = new File(path);
+        LOGGER.info(String.valueOf(ReportPortal.emitLog("Test" + tr.getMethod().getMethodName() + " failed", "ERROR", Calendar.getInstance().getTime(), file)));
         LOGGER.info("Test start" + tr.getMethod().getMethodName() + " start");
     }
 

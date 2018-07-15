@@ -1,6 +1,7 @@
 package api;
 
 import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.json.simple.JSONObject;
@@ -12,7 +13,7 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class Pages {
+public class PageTest {
     @BeforeClass
     @Parameters({"baseURL"})
     public void setUpClass(String baseURL) {
@@ -65,7 +66,10 @@ public class Pages {
 
         Response response = request.post("/login");
 
-        Assert.assertEquals(200, response.getStatusCode());
+//        Assert.assertEquals(304, response.getStatusCode());
+        JsonPath str = response.jsonPath();
+        System.out.println(str.get("roles"));
+        System.out.println(str.getString("roles"));
     }
 
 
